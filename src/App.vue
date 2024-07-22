@@ -18,6 +18,9 @@
           href="https://cloud.digitalocean.com/apps"
           class="inline-block py-2 lg:py-4 px-4 lg:px-8 rounded bg-yellow-400 hover:bg-yellow-300 text-yellow-800 shadow hover:shadow-2xl transition duration-300"
         >View Your Dashboard</a>
+        <a class="inline-block py-2 lg:py-4 px-4 lg:px-8 rounded bg-yellow-400 hover:bg-yellow-300 text-yellow-800 shadow hover:shadow-2xl transition duration-300">
+          Test
+        </a>
       </div>
     </div>
   </div>
