@@ -39,6 +39,8 @@
   <script>
   
   import Swal from "sweetalert2"
+  import wrongSfx from '../assets/sfx/wrong_sfx.mp3';
+  import correctSfx from '../assets/sfx/correct_sfx.mp3';
   export default {
     
     name: 'formAnswer',
@@ -60,7 +62,7 @@
                     idAnswer:1,
                     question:"Masukkan jawaban anda :",
                     type:'Extreme Addition',
-                    answer:"1234",
+                    answer:"9921",
                     status:false,
                 },
                 {
@@ -144,7 +146,14 @@
         }
     },
     mounted(){
-        this.idAnswer = this.$route.params.id
+        console.log(this.$route.params.id)
+        if(this.$route.params.id===undefined||this.$route.params.id==''||this.$route.params.id==null){
+            this.$router.replace('/formAnswer/1').then(() => {
+              this.$router.go()
+            });
+        }
+        this.idAnswer = this.$route.params.id;
+        console.log(this.idAnswer)
         // console.log(this.$route.params)
         this.question = this.obj_answer[this.idAnswer-1].question;
         this.type = this.obj_answer[this.idAnswer-1].type;
@@ -162,13 +171,15 @@
             this.inputAnswer = "";
         },
         alertTrue(){
+            var audio = new Audio(correctSfx)
+             audio.play();
             Swal.fire({
                 title: "Selamat",
                 text: "Jawaban Benar!",
                 icon: "success",
                 showConfirmButton: false,
                 timer: 6000,
-                backdrop:`rgb(26, 255, 35)`,
+                backdrop:`rgb(0, 103, 79)`,
                 showClass: {
                 popup: "animate__animated animate__fadeInDown",
                 },
@@ -181,13 +192,15 @@
             // })
         },
         alertFalse(){
+            var audio = new Audio(wrongSfx)
+             audio.play();
             Swal.fire({
                 title: "Maaf",
                 text: "Jawaban Salah!",
                 icon: "error",
                 showConfirmButton: false,
                 timer: 3000,
-                backdrop:`rgb(255, 0, 0)`,
+                backdrop:`rgb(136, 8, 8)`,
                 showClass: {
                 popup: "animate__animated animate__fadeInDown",
                 },

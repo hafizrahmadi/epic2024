@@ -4,11 +4,16 @@ import FormAnswer from '../pages/formAnswer.vue';
 
 
 let routes = [
-  // {
-  //   path: '/',
-  //   name: 'home',
-  //   component: HomeViews
-  // },
+  {
+    path: '/',
+    name: 'home',
+    component:FormAnswer
+  },
+  {
+    path: '/formAnswer/',
+    name: 'fA',
+    component:FormAnswer
+  },
   // {
   //   path: '/about',
   //   name: 'about',
